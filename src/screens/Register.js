@@ -13,7 +13,7 @@ import {
 import buttonRed from './styles/buttonRed';
 import {createUser} from '../services/FirebaseApi';
 
-const img = require('../assets/list.png');
+const img = require('../assets/icon/list.png');
 
 export default class Register extends Component {
   state = {

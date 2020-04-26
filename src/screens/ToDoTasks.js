@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
+const plus = require('../assets/icon/plus.png');
 export default class ToDoTasks extends Component {
   goToTask() {
     this.props.navigation.navigate('Task');
@@ -13,9 +14,7 @@ export default class ToDoTasks extends Component {
           style={styles.floatButton}
           onPress={() => this.goToTask()}
         >
-          <View style={styles.button}>
-            <Text style={styles.text}>+</Text>
-          </View>
+          <Image source={plus} style={styles.img} />
         </TouchableOpacity>
       </View>
     );
@@ -29,29 +28,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
-  icon: {
-    width: 26,
-    height: 26,
-  },
   img: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
   },
   floatButton: {
     position: 'absolute',
     right: 20,
     bottom: 20,
-  },
-  button: {
-    backgroundColor: 'red',
-    width: 60,
-    height: 60,
-    margin: 0,
-    borderRadius: 50,
-  },
-  text: {
-    fontSize: 50,
-    color: 'white',
-    alignSelf: 'center',
   },
 });
