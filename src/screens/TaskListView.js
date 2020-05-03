@@ -5,9 +5,9 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-} from 'reactnative';
+} from 'react-native';
 export default class TaskListView extends Component {
-  _renderSectionHeader(sectionData) {
+  renderSectionHeader(sectionData) {
     return (
       <View style={styles.headerConteiner}>
         <View style={styles.headerTagConteiner}>
@@ -20,9 +20,9 @@ export default class TaskListView extends Component {
     );
   }
 
-  _renderItem(itemData) {
+  renderItem(itemData) {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => this._onClickTask(itemData.item)}>
         <View style={styles.itemConteiner}>
           <Text style={styles.itemTextTitle}>{itemData.item.title}</Text>
           <Text>{itemData.item.resume}</Text>
@@ -31,20 +31,25 @@ export default class TaskListView extends Component {
     );
   }
 
+  _onClickTask(task) {
+    const {navigate} = this.props.navigation;
+    navigate('Task', {task});
+  }
+
   render() {
     return (
       <SectionList
         renderSectionHeader={(section) => this.renderSectionHeader(section)}
         sections={[
           {
-            data: this.state.tasks.filter((data) => {
+            data: this.props.tasks.filter((data) => {
               return data.priority;
             }),
             key: 'hightPriority',
             title: 'Hight Priority',
           },
           {
-            data: this.state.tasks.filter((data) => {
+            data: this.props.tasks.filter((data) => {
               return !data.priority;
             }),
             key: 'lowPriority',

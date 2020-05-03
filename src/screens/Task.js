@@ -11,15 +11,35 @@ import {
 import {saveTask} from '../services/FirebaseApi';
 
 export default class Task extends Component {
+  static navigationOptions = {
+    title: 'Task',
+  };
+
   state = {
+    key: '',
     title: '',
     resume: '',
     priority: true,
     isDone: false,
   };
 
+  constructor(props) {
+    super(props);
+    try {
+      const task = this.props.route.params.task;
+      this.state = {
+        key: task.key,
+        title: task.title,
+        resume: task.resume,
+        priority: task.priority,
+        isDone: task.isDone,
+      };
+    } catch (error) {}
+  }
+
   async _saveTaskAsync() {
     let task = {
+      key: this.state.key,
       title: this.state.title,
       resume: this.state.resume,
       priority: this.state.priority,
