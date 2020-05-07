@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import {TaskListView} from './Components';
-import {getTasks} from '../services/FirebaseApi';
+import {TaskListView} from '../../../components/Components';
+import {getTasks} from '../../../services/FirebaseApi';
 
-const plus = require('../assets/icon/plus.png');
+const plus = require('../../../assets/icon/plus.png');
 export default class ToDoTasks extends Component {
   state = {
     tasks: [],

@@ -1,6 +1,5 @@
-// import React from 'react';
 import {StyleSheet} from 'react-native';
-const buttonRed = StyleSheet.create({
+const stylesButton = StyleSheet.create({
   container: {
     alignSelf: 'center',
     borderRadius: 14,
@@ -16,4 +15,4 @@ const buttonRed = StyleSheet.create({
   },
 });
 
-export default buttonRed;
+export default stylesButton;

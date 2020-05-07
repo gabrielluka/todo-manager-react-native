@@ -8,20 +8,19 @@ import {
   Image,
   TextInput,
   Text,
-  TouchableOpacity,
   Alert,
 } from 'react-native';
 
-import buttonRed from './styles/buttonRed';
-import {signInOnAsync} from '../services/FirebaseApi';
+import ButtonRed from '../../components/Button/ButtonRed';
+import {signInOnAsync} from '../../services/FirebaseApi';
 
-const img = require('../assets/icon/list.png');
+const img = require('../../assets/icon/list.png');
 
 const Login = (props) => {
   const [email, setEmail] = useState(props.email);
   const [password, setPassword] = useState('');
 
-  const _signIn = async () => {
+  const signIn = async () => {
     try {
       const {user} = await signInOnAsync(email, password);
       Alert.alert(
@@ -62,11 +61,7 @@ const Login = (props) => {
           secureTextEntry={true}
         />
 
-        <TouchableOpacity onPress={() => _signIn()}>
-          <View style={buttonRed.container}>
-            <Text style={buttonRed.text}>Sign in</Text>
-          </View>
-        </TouchableOpacity>
+        <ButtonRed buttonText="Sign in" onPress={signIn} />
 
         <View style={styles.textConteiner}>
           <Text style={styles.textRemember}>Not a member? Let's </Text>

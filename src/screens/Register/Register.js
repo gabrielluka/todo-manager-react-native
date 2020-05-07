@@ -6,22 +6,26 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   Alert,
 } from 'react-native';
 
-import buttonRed from './styles/buttonRed';
-import {createUser} from '../services/FirebaseApi';
+import ButtonRed from '../../components/Button/ButtonRed';
+import {createUser} from '../../services/FirebaseApi';
 
-const img = require('../assets/icon/list.png');
+const img = require('../../assets/icon/list.png');
 
 export default class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.createUserAsync = this.createUserAsync.bind(this);
+  }
+
   state = {
     email: '',
     password: '',
   };
 
-  async _createUserAsync() {
+  async createUserAsync() {
     try {
       const user = await createUser(this.state.email, this.state.password);
       Alert.alert(
@@ -62,15 +66,7 @@ export default class Register extends Component {
             onChangeText={(password) => this.setState({password})}
             style={styles.input}
           />
-          <TouchableOpacity
-            onPress={() => {
-              this._createUserAsync();
-            }}
-          >
-            <View style={buttonRed.container}>
-              <Text style={buttonRed.text}>Sign in</Text>
-            </View>
-          </TouchableOpacity>
+          <ButtonRed buttonText="Register" onPress={this.createUserAsync} />
         </View>
       </KeyboardAvoidingView>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 import {AppRegistry, SafeAreaView} from 'react-native';
 import {name as appName} from './app.json';
 import {NavigationContainer} from '@react-navigation/native';
-import Routes from './src/routes/Routes';
+import Routes from './src/routes/StackRoutes';
 import {initFirebase} from './src/services/FirebaseApi';
 
 const wrappedRoutes = () => {

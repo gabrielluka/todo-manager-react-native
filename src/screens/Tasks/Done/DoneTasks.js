@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {getTasks} from '../services/FirebaseApi';
-import {TaskListView} from './Components';
+import {getTasks} from '../../../services/FirebaseApi';
+import {TaskListView} from '../../../components/Components';
 
 export default class DoneTasks extends Component {
   goToTask() {

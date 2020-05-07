@@ -1,33 +1,9 @@
 import React from 'react';
-import {
-  Login,
-  Register,
-  ToDoTasks,
-  DoneTasks,
-  App,
-  Task,
-} from '../screens/Screens';
+import {Login, Register, App, Task} from '../screens/Screens';
 import {createStackNavigator} from '@react-navigation/stack';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import TaksTabTop from './TopTabs';
 
 const Stack = createStackNavigator();
-const TopTab = createMaterialTopTabNavigator();
-
-const TaksTabTop = () => {
-  return (
-    <TopTab.Navigator
-      tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-        iconStyle: {width: 20, height: 20},
-        indicatorStyle: {backgroundColor: 'tomato'},
-      }}
-    >
-      <TopTab.Screen name="To Do" component={ToDoTasks} />
-      <TopTab.Screen name="Done" component={DoneTasks} />
-    </TopTab.Navigator>
-  );
-};
 
 const Routes = () => {
   return (

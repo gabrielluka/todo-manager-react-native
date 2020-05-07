@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import {saveTask} from '../services/FirebaseApi';
+import {saveTask} from '../../services/FirebaseApi';
 
 export default class Task extends Component {
   static navigationOptions = {
